@@ -1,5 +1,5 @@
 <div align="center" id="top">
-  <img width="500px" height="200px" src="welcome.svg"/>
+  <img width="500px" height="200px" src="assets/welcome.svg"/>
   </div>
   
 ## USER STORY/OVERVIEW
