@@ -2,7 +2,7 @@
   <img width="500px" height="200px" src="assets/welcome.svg"/>
   </div>
   
-## USER STORY/OVERVIEW
+## USER STORY / OVERVIEW
 
 ```
 AS A social media startup
