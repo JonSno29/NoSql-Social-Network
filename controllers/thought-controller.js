@@ -5,12 +5,32 @@ const thoughtController = {
     Thought.find({})
       .populate({
         path: "reactions", //Thought also populates Thoughts
-        select: "-__v", // The minus sign - in front of the field indicates that we don't want it to be returned.
+        select: "-__v", // '-' Don't want it to be returned.
       })
-      .select("-__v") //this put the sort in DESC order by the _id value
+      .select("-__v") 
       .then((dbThoughtData) => res.json(dbThoughtData))
       .catch((err) => {
         console.log(err);
         res.status(400).json(err);
       });
-  
+   },
+
+  // get one Thought by id  Get http://localhost:3001/api/Thoughts/<Thought-id-here>
+  getThoughtById({ params }, res) {
+    Thought.findOne({ _id: params.id })
+      .then((dbThoughtData) => {
+        if (!dbThoughtData) {
+          res.status(404).json({ message: "No Thought found with this id!" });
+          return;
+        }
+        res.json(dbThoughtData);
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(400).json(err);
+      });
+  },
+
+
+
+}
