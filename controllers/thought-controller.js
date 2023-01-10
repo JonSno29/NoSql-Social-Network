@@ -115,6 +115,4 @@ deleteReaction({ params }, res) {
 
 };
 
-
-
 module.exports = thoughtController;

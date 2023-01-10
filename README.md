@@ -86,25 +86,11 @@ SO THAT my website can handle large amounts of unstructured data
 
 ## DEPENDENCIES
 
-```bash
-    "bcrypt": "^5.1.0",
-    "connect-session-sequelize": "^7.1.5",
-    "dotenv": "^16.0.3",
+   ```
     "express": "^4.18.2",
-    "express-handlebars": "^6.0.6",
-    "express-session": "^1.17.3",
-    "handlebars": "^4.7.7",
-    "heroku": "^7.67.1",
-    "mysql2": "^2.3.3",
     "node": "^19.2.0",
     "nodemon": "^2.0.20",
-    "normalize.css": "^8.0.1",
-    "phoenix": "^1.6.15",
-    "require": "^2.4.20",
-    "seeds": "^2.3.1",
-    "sequelize": "^6.27.0"
-   <http://localhost:3001>
-```
+   ```
 
 ## LICENSE
 

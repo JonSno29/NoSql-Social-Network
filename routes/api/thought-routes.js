@@ -19,8 +19,8 @@ const {
   router
   .route("/thoughts/:id")
   .get(getThoughtById)
-  //.put(updateThought)
-  //.delete(deleteThought)
+  .put(updateThought)
+  .delete(deleteThought)
 
   router
   .route("/thoughts/:thoughtId/reactions")
@@ -28,6 +28,6 @@ const {
 
   router
   .route("/thoughts/:thoughtId/reactions/:reactionId")
-  //.delete(deleteReaction)
+  .delete(deleteReaction)
 
   module.exports = router;
