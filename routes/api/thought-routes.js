@@ -12,22 +12,22 @@ const {
   } = require("../../controllers/thought-controller");
 
   router
-   .route("/thoughts")
-   .get(getAllThought)
+   .route("/")
+   .get(getThought)
   .post(createThought);
 
   router
   .route("/thoughts/:id")
-  .get(getThoughtById)
+  .get(getOneThought)
   .put(updateThought)
   .delete(deleteThought)
 
   router
-  .route("/thoughts/:thoughtId/reactions")
+  .route("/:thoughtId/reactions")
   .post(addReaction)
 
   router
-  .route("/thoughts/:thoughtId/reactions/:reactionId")
+  .route("/:thoughtId/reactions/:reactionId")
   .delete(deleteReaction)
 
   module.exports = router;

@@ -1,8 +1,9 @@
-const { User, Thought } = require("../models");
+const { Thought, User } = require("../models");
 
 const thoughtController = {
-  getAllThought(req, res) {
+  getThought(req, res) {
     Thought.find({})
+      .sort({ createdAt: -1 })
       .populate({
         path: "reactions", //Thought also populates Thoughts
         select: "-__v", // '-' Don't want it to be returned.
@@ -16,8 +17,8 @@ const thoughtController = {
   },
 
   // get one Thought by id  Get http://localhost:3001/api/Thoughts/<Thought-id-here>
-  getThoughtById({ params }, res) {
-    Thought.findOne({ _id: params.id })
+  getOneThought({ params }, res) {
+    Thought.findOne({ _id: req.params.ThoughtId })
       .then((dbThoughtData) => {
         if (!dbThoughtData) {
           res.status(404).json({ message: "No Thought found with this id!" });
