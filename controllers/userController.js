@@ -59,36 +59,33 @@ module.exports = {
 
   addFriend(req, res) {
     User.findOneAndUpdate(
-      { _id: req.params.id },
-      { $push: { friends: req.params.id } },
-      { new: true }
+      { _id: req.params.userId },
+      { $addToSet: { friends: req.params.friendId } },
+      {runValidators: true, new: true }
     )
-      .then((dbUserData) => {
-        if (!dbUserData) {
-          res.status(404).json({ message: "No User found with this id!" });
-          return;
-        }
-        res.json(dbUserData);
+      .then((user) => {
+        !user
+          ? res.status(404).json({ message: "No User found with this id!" })
+    : res.json(user);
       })
-      .catch((err) => res.json(err));
+      .catch((err) => res.status(500).json(err));
   },
 
   deleteFriend(req, res) {
-    User.findOneAndDelete(
-      { _id: req.params.id },
-      { $pull: { friends: req.params.id } },
+    User.findOneAndUpdate(
+      { _id: req.params.userId },
+      { $pull: { friends: req.params.friendId } },
       { new: true }
     )
-      .then((dbUserData) => {
-        if (!dbUserData) {
-          res.status(404).json({ message: "No User found with this id!" });
-          return;
-        }
-        res.json(dbUserData);
-      })
-      .catch((err) => res.json(err));
+      .then(
+        (user) =>
+        !user
+        ? res.status(404).json({ message: "No User found with this id!" })
+        : res.json(user)
+      )
+      .catch((err) => res.status(500).json(err));
   },
 };
 
 
-module.exports = userController;
+
