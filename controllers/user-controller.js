@@ -13,19 +13,25 @@ const userController = {
   },
 
   getUserById(req, res) {
-    User.findOne({ _id: req.params.userId })
-      .select("-__v")
-      .populate("friends")
-      .populate("thoughts")
+    User.findOne({ _id: req.params.id })
+      .populate({
+        path: "thoughts",
+        select: "-__v",
+      })
+      .populate({
+        path: "friends",
+        select: "-__v",
+      })
       .then((dbUserData) => {
         if (!dbUserData) {
-          return res.status(404).json({ message: "No user with this id!" });
+          res.status(404).json({ message: "No User found with this id!" });
+          return;
         }
         res.json(dbUserData);
       })
       .catch((err) => {
         console.log(err);
-        res.status(500).json(err);
+        res.sendStatus(400);
       });
   },
 
@@ -37,7 +43,7 @@ const userController = {
   },
   updateUser(req, res) {
     User.findOneAndUpdate(
-      { _id: req.params.userId },
+      { _id: req.params.id },
       {
         $set: req.body,
       },
@@ -48,19 +54,17 @@ const userController = {
     )
       .then((dbUserData) => {
         if (!dbUserData) {
-          return res.status(404).json({ message: "No user with this id!!" });
+          res.status(404).json({ message: "No user with this id!!" });
+          return;
         }
         res.json(dbUserData);
       })
-      .catch((err) => {
-        console.log(err);
-        res.status(500).json(err);
-      });
+      .catch((err) => res.json(err));
   },
 
   //delete
-  deleteUser({ params }, res) {
-    User.findOneAndDelete({ _id: params.id })
+  deleteUser(req, res) {
+    User.findOneAndDelete({ _id: req.params.id })
       .then((dbUserData) => {
         if (!dbUserData) {
           res.status(404).json({ message: "User not found" });
@@ -68,13 +72,14 @@ const userController = {
         }
         res.json(dbUserData);
       })
+
       .catch((err) => res.status(400).json(err));
   },
 
-  addFriend({ params }, res) {
+  addFriend(req, res) {
     User.findOneAndUpdate(
-      { _id: params.id },
-      { $addToSet: { friends: params.friendsId } },
+      { _id: req.params.id },
+      { $push: { friends: req.params.id } },
       { new: true }
     )
       .then((dbUserData) => {
@@ -87,10 +92,9 @@ const userController = {
       .catch((err) => res.json(err));
   },
 
-  deleteFriend({ params }, res) {
-    User.findOneAndUpdate(
-      { _id: params.id },
-      { $pull: { friends: params.friendsId } },
+  deleteFriend(req, res) {
+    User.findOneAndDelete({ _id: req.params.id },
+      { $pull: { friends: req.params.id } },
       { new: true }
     )
       .then((dbUserData) => {

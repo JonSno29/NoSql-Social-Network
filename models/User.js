@@ -14,12 +14,20 @@ const UserSchema = new Schema(
       unique: true,
       match: [/.+@.+\..+/, "Please enter a valid e-mail address"],
     },
-    thoughts: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "Thought",
-      },
-    ],
+    thoughts: {
+      type: String,
+      unique: true,
+      required: true,
+      trim: true,
+      ref: "Thought",
+    },
+    createdAt: {
+      type: Date,
+      default: Date.now,
+      get: (createdAtVal) =>
+        moment(createdAtVal).format("YYYY-MM-DD HH:mm:ss[MST]ZZ"),
+    },
+
     friends: [
       {
         type: Schema.Types.ObjectId,
