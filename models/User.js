@@ -16,9 +16,7 @@ const UserSchema = new Schema(
     },
     thoughts: {
       type: String,
-      unique: true,
-      required: true,
-      trim: true,
+      
       ref: "Thought",
     },
     createdAt: {
