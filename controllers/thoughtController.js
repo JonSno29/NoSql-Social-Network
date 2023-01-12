@@ -22,43 +22,40 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
   // createThought Post /api/Thoughts
-  createThought({ body }, res) {
-    createThought
-      .create(body)
-      .then((dbThoughtData) => res.json(dbThoughtData))
-      .catch((err) => res.json(err));
+  createThought(req, res) {
+    Thought.create(req.body)
+      .then((_id) => {
+        // it associates which id we are creating
+        return User.findOneAndUpdate(
+          { _id: body.userId },
+          { $push: { thoughts: _id } },
+          { new: true }
+        );
+      })
+      // createThought(req, res) {
+      // Thought.findOneAndUpdate
+
+      .then((thought) => {
+        !thought
+          ? res.status(404).json({ message: "No User found with this id!" })
+          : res.json(thought);
+      })
+      .catch((err) => res.status(500).json(err));
   },
-  // createThought(req, res) {
-  // Thought.findOneAndUpdate
-  //.then((_id) => {
-  // it associates which id we are creating
-  // return User.findOneAndUpdate(
-  //{ _id: body.userId },
-  //{ $push: { thoughts: _id } },
-  //{ new: true }
-  // );
-  // })
-  //.then((dbThoughtData) => {
-  // if (!dbThoughtData) {
-  //res.status(404).json({ message: "No User found with this id!" });
-  // return;
-  //}
-  //res.json(dbThoughtData);
-  //})
-  //.catch((err) => res.json(err));
-  //},
 
   // updateThought Update http://localhost:3001/api/Thoughts/id here
   updateThought(req, res) {
-    Thought.findOneAndUpdate({ _id: body.id }, { $set: body }, { new: true })
-      .then((dbThoughtData) => {
-        if (!dbThoughtData) {
-          res.status(404).json({ message: "No Thought found with this id!" });
-          return;
-        }
-        res.json(dbThoughtData);
-      })
-      .catch((err) => res.status(400).json(err));
+    Thought.findOneAndUpdate(
+      { _id: req.params.thoughtId },
+      { $set: req.body },
+      { runValidators: true, New: true }
+    )
+      .then((user) =>
+        !user
+          ? res.status(404).json({ message: "No thought found with this ID!" })
+          : res.json(user)
+      )
+      .catch((err) => res.status(500).json(err));
   },
 
   // deleteThought Delete http://localhost:3001/api/Thoughts/id
