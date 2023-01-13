@@ -60,7 +60,7 @@ module.exports = {
           : res.json({ message: "Thought deleted" })
       )
 
-      .catch((err) => res.status(500).json(err));
+      .catch((err) => res.status(404).json(err));
   },
   // add a reaction to a thought
   createReaction(req, res) {
@@ -79,7 +79,7 @@ module.exports = {
 
   deleteReaction(req, res) {
     Thought.findOneAndUpdate(
-      { _id: params.thoughtId },
+      { _id: req.params.thoughtId },
       { $pull: { reactions: { reactionId: req.params.reactionId } } },
       { runValidators: true, new: true }
     )
