@@ -144,7 +144,6 @@ SO THAT my website can handle large amounts of unstructured data
     <img width="30px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/devicon/devicon-original.svg" />
     <img width="30px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg" />
     <img width="30px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/chrome/chrome-plain.svg" />
-
 </kbd>
   
 ## LIVE LINK / MOCK-UP
@@ -153,11 +152,9 @@ SO THAT my website can handle large amounts of unstructured data
 
   <a href="https://github.com/jonsno29/NoSql-Social-Network.git" target="_blank"><img src="https://img.shields.io/badge/Github-jonsno29-red?style=for-the-badge&logo=github"></a>
   
-🎗 
-
 ## CREDITS
 
-🎗 ![](https://img.shields.io/badge/Created%20by-JON%20T.%20SNOVER-blue?style=for-the-badge)  
+ ![](https://img.shields.io/badge/Created%20by-JON%20T.%20SNOVER-blue?style=for-the-badge)  
 
 ## DEPENDENCIES
 
@@ -190,9 +187,10 @@ SO THAT my website can handle large amounts of unstructured data
 🎗 ![](https://img.shields.io/badge/npm%20package-express-orange?style=flat-square&logo=npm)
 
 
-🎗 <img width="30px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" />
+🎗 ![](https://img.shields.io/badge/VisualStudio-CODE-blue?style=flat-square&logo=VSCODE)
 
-🎗 <img width="30px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg" />
+
+🎗 ![](https://img.shields.io/badge/npm%20package-JEST-cyan?style=flat-square&logo=npm)
   
 
 🎗 ![](https://img.shields.io/badge/npm%20package-mongoose-cyan?style=flat-square&logo=npm)
