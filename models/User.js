@@ -24,7 +24,7 @@ const UserSchema = new Schema(
       type: Date,
       default: Date.now,
       get: (createdAtVal) =>
-        moment(createdAtVal).format("YYYY-MM-DD HH:mm:ss[MST]ZZ"),
+        moment(createdAtVal).format("MMM DD, YYYY [at] hh:mm a"),
     },
 
     friends: [
@@ -42,10 +42,10 @@ const UserSchema = new Schema(
   }
 );
 
-UserSchema.virtual('friendCount').get(function() {
-    return this.friends.length;
+UserSchema.virtual("friendCount").get(function () {
+  return this.friends.length;
 });
 
-const User = model('User', UserSchema);
+const User = model("User", UserSchema);
 
 module.exports = User;
