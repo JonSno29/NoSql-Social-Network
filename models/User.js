@@ -14,11 +14,12 @@ const UserSchema = new Schema(
       unique: true,
       match: [/.+@.+\..+/, "Please enter a valid e-mail address"],
     },
-    thoughts: {
-      type: String,
-      
-      ref: "Thought",
-    },
+    thoughts: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Thought",
+      },
+    ],
     createdAt: {
       type: Date,
       default: Date.now,

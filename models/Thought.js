@@ -34,6 +34,10 @@ const reactionSchema = new Schema(
 
 const thoughtSchema = new Schema(
   {
+    thoughtId: {
+      type: Schema.Types.ObjectId,
+      default: () => new Types.ObjectId(),
+    },
     thoughtText: {
       type: String,
       required: true,
@@ -62,10 +66,10 @@ const thoughtSchema = new Schema(
   }
 );
 
-thoughtSchema.virtual('reactionCount').get(function() {
-  return this.reactions.length;
+thoughtSchema.virtual('reactionCount')
+.get(function() {
+ return this.reactions.length;
 })
-
 
 const Thought = model("Thought", thoughtSchema);
 

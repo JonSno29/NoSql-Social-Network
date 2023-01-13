@@ -4,10 +4,7 @@ module.exports = {
   getThought(req, res) {
     Thought.find({})
       .then((thought) => res.json(thought))
-      .catch((err) => {
-        console.log(err);
-        res.sendStatus(400);
-      });
+      .catch((err) => res.status(500).json(err));
   },
 
   // get one Thought by id  Get http://localhost:3001/api/Thoughts/<Thought-id-here>
@@ -21,26 +18,13 @@ module.exports = {
       )
       .catch((err) => res.status(500).json(err));
   },
-  // createThought Post /api/Thoughts
   createThought(req, res) {
     Thought.create(req.body)
-      .then((_id) => {
-        // it associates which id we are creating
-        return User.findOneAndUpdate(
-          { _id: body.userId },
-          { $push: { thoughts: _id } },
-          { new: true }
-        );
-      })
-      // createThought(req, res) {
-      // Thought.findOneAndUpdate
-
-      .then((thought) => {
-        !thought
-          ? res.status(404).json({ message: "No User found with this id!" })
-          : res.json(thought);
-      })
-      .catch((err) => res.status(500).json(err));
+      .then((user) => res.json(user))
+      .catch((err) => {
+        console.log(err);
+        return res.status(500).json(err);
+      });
   },
 
   // updateThought Update http://localhost:3001/api/Thoughts/id here
@@ -68,13 +52,11 @@ module.exports = {
               { thoughts: req.parmas.thoughtId },
               { $pull: { thoughts: req.params.thoughtId } },
               { new: true }
-            );
+            )
       })
       .then((user) =>
         !user
-          ? res
-              .status(404)
-              .json({ message: "Deleted, No User found with this id!" })
+          ? res.status(404).json({ message: "Deleted, No User found with this id!" })
           : res.json({ message: "Thought deleted" })
       )
 
@@ -101,10 +83,10 @@ module.exports = {
       { $pull: { reactions: { reactionId: req.params.reactionId } } },
       { runValidators: true, new: true }
     )
-      .then(( thought ) => 
+      .then((thought) =>
         !thought
-         ? res.status(404).json({ message: "No ID found" })
-         : res.json( thought )
+          ? res.status(404).json({ message: "No ID found" })
+          : res.json(thought)
       )
       .catch((err) => res.status(500).json(err));
   },
