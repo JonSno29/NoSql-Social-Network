@@ -4,7 +4,7 @@ module.exports = {
   getThought(req, res) {
     Thought.find({})
       .then((thought) => res.json(thought))
-      .catch((err) => res.status(500).json(err));
+      .catch((err) => res.status(400).json(err));
   },
 
   // get one Thought by id  Get http://localhost:3001/api/Thoughts/<Thought-id-here>
@@ -23,7 +23,7 @@ module.exports = {
       .then((user) => res.json(user))
       .catch((err) => {
         console.log(err);
-        return res.status(500).json(err);
+        return res.status(400).json(err);
       });
   },
 
@@ -39,29 +39,22 @@ module.exports = {
           ? res.status(404).json({ message: "No thought found with this ID!" })
           : res.json(user)
       )
-      .catch((err) => res.status(500).json(err));
+      .catch((err) => res.status(400).json(err));
   },
 
   // deleteThought Delete http://localhost:3001/api/Thoughts/id
   deleteThought(req, res) {
     Thought.findOneAndDelete({ _id: req.params.thoughtId })
       .then((thought) => {
-        !thought
-          ? res.status(404).json({ message: "No Thought found with this id!" })
-          : User.findOneAndUpdate(
-              { thoughts: req.parmas.thoughtId },
-              { $pull: { thoughts: req.params.thoughtId } },
-              { new: true }
-            )
+        if (!thought) {
+          res.status(404).json({ message: "No Thought found with this id!" });
+          return;
+        }
+        res.json(thought);
       })
-      .then((user) =>
-        !user
-          ? res.status(404).json({ message: "Deleted, No User found with this id!" })
-          : res.json({ message: "Thought deleted" })
-      )
-
-      .catch((err) => res.status(404).json(err));
+      .catch((err) => res.status(400).json(err));
   },
+
   // add a reaction to a thought
   createReaction(req, res) {
     Thought.findOneAndUpdate(
@@ -74,7 +67,7 @@ module.exports = {
           ? res.status(404).json({ message: "No thought with this id!" })
           : res.json(thought)
       )
-      .catch((err) => res.status(500).json(err));
+      .catch((err) => res.status(400).json(err));
   },
 
   deleteReaction(req, res) {
@@ -88,7 +81,7 @@ module.exports = {
           ? res.status(404).json({ message: "No ID found" })
           : res.json(thought)
       )
-      .catch((err) => res.status(500).json(err));
+      .catch((err) => res.status(400).json(err));
   },
 };
 
