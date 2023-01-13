@@ -148,9 +148,7 @@ SO THAT my website can handle large amounts of unstructured data
   
 ## LIVE LINK / MOCK-UP
 
-🎗 GITHUB REPOSITORY:
-
-  <a href="https://github.com/jonsno29/NoSql-Social-Network.git" target="_blank"><img src="https://img.shields.io/badge/Github-jonsno29-red?style=for-the-badge&logo=github"></a>
+ <a href="https://github.com/jonsno29/NoSql-Social-Network.git" target="_blank"><img src="https://img.shields.io/badge/Github-jonsno29-red?style=for-the-badge&logo=github"></a>
   
 ## CREDITS
 
@@ -181,22 +179,22 @@ SO THAT my website can handle large amounts of unstructured data
 
 ## TESTS
 
-🎗 ![](https://img.shields.io/badge/Database-MongoDB-yellow?style=flat-square&logo=mongoDB)
+![](https://img.shields.io/badge/Database-MongoDB-yellow?style=flat-square&logo=mongoDB)
 
 
-🎗 ![](https://img.shields.io/badge/npm%20package-express-orange?style=flat-square&logo=npm)
+![](https://img.shields.io/badge/npm%20package-express-orange?style=flat-square&logo=npm)
 
 
-🎗 ![](https://img.shields.io/badge/VisualStudio-CODE-blue?style=flat-square&logo=VSCODE)
+![](https://img.shields.io/badge/VisualStudio-CODE-blue?style=flat-square&logo=VSCODE)
 
 
-🎗 ![](https://img.shields.io/badge/npm%20package-JEST-cyan?style=flat-square&logo=npm)
+![](https://img.shields.io/badge/npm%20package-JEST-cyan?style=flat-square&logo=npm)
   
 
-🎗 ![](https://img.shields.io/badge/npm%20package-mongoose-cyan?style=flat-square&logo=npm)
+![](https://img.shields.io/badge/npm%20package-mongoose-cyan?style=flat-square&logo=npm)
 
 
-🎗 ![](https://img.shields.io/badge/npm%20package-moment-%3CCOLOR%3E?style=flat-square&logo=npm)
+![](https://img.shields.io/badge/npm%20package-moment-%3CCOLOR%3E?style=flat-square&logo=npm)
 
 ## CONTACT ME
 
