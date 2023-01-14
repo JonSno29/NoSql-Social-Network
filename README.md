@@ -151,7 +151,7 @@ SO THAT my website can handle large amounts of unstructured data
  <a href="https://github.com/jonsno29/NoSql-Social-Network.git" target="_blank"><img src="https://img.shields.io/badge/Github-jonsno29-red?style=for-the-badge&logo=github"></a>
 
 🎗 BONUS:
- <https://drive.google.com/file/d/1EF7VFPX2fIjyqfwKVFcgGQEEDwGF_RfG/view?usp=share_link>
+
 
 🎗userRoutes:
 
