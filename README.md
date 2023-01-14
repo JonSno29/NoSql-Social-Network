@@ -149,6 +149,22 @@ SO THAT my website can handle large amounts of unstructured data
 ## LIVE LINK / MOCK-UP
 
  <a href="https://github.com/jonsno29/NoSql-Social-Network.git" target="_blank"><img src="https://img.shields.io/badge/Github-jonsno29-red?style=for-the-badge&logo=github"></a>
+
+🎗 BONUS:
+ <https://drive.google.com/file/d/1EF7VFPX2fIjyqfwKVFcgGQEEDwGF_RfG/view?usp=share_link>
+
+🎗userRoutes:
+ <https://drive.google.com/file/d/1T1KyjPrs2m0o-c4OUhvpiSMzyiKur95m/view?usp=share_link>
+
+🎗friendRoutes:
+ <https://drive.google.com/file/d/1RHAlYd2fiLbbWaNcvNdMuugx3Fc_3f9p/view?usp=share_link>
+
+🎗thoughtRoutes:
+ <https://drive.google.com/file/d/1HLjIOl3SiuETDizjCYUP7xmxy4pXVzma/view?usp=share_link>
+
+🎗reactionRoutes:
+ <https://drive.google.com/file/d/1DqNs8kd1J0BD4kZVXU1EGB1S0l9WcTRT/view?usp=share_link>
+
   
 ## CREDITS
 
