@@ -151,19 +151,19 @@ SO THAT my website can handle large amounts of unstructured data
  <a href="https://github.com/jonsno29/NoSql-Social-Network.git" target="_blank"><img src="https://img.shields.io/badge/Github-jonsno29-red?style=for-the-badge&logo=github"></a>
 
 🎗 BONUS:
-
+<https://www.youtube.com/watch?v=9ZkAn960k-c>
 
 🎗userRoutes:
-
+<https://www.youtube.com/watch?v=wn91nXeY17M>
 
 🎗friendRoutes:
- 
+ <https://www.youtube.com/watch?v=Cn2SAVjfUg0>
 
 🎗thoughtRoutes:
-
+<https://www.youtube.com/watch?v=50of_t4iyv4>
 
 🎗reactionRoutes:
-
+<https://www.youtube.com/watch?v=wi_Q2yJgXNU>
 
   
 ## CREDITS
